@@ -12,6 +12,12 @@ public class loginPageEvents {
         System.out.println("Size of Elements: "+sizeOfElements);
     }
 
+    public void verifyLoginPage2(){
+        Assert.assertFalse(FetchElement.getListWebElements("XPATH", loginPageElements.loginText).size()>0,"Login Page");
+        int sizeOfElements = FetchElement.getListWebElements("XPATH", loginPageElements.loginText).size();
+        System.out.println("Size of Elements: "+sizeOfElements);
+    }
+
     public void enterEmailAddress(){
         FetchElement.getWebElement("ID",loginPageElements.emailAddress).sendKeys("rush2vijay.g@gmail.com");
     }
