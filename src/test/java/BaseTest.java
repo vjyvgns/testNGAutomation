@@ -1,5 +1,6 @@
 package test.java;
 
+import main.java.utils.constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -21,7 +22,7 @@ public class BaseTest {
     public void beforeMethod(String browserName){
         setUpDriver(browserName);
         driver.manage().window().maximize();
-        driver.get("www.amazon.co.uk");
+        driver.get(constants.url);
     }
 
 

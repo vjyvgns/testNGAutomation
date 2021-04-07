@@ -1,0 +1,11 @@
+<Suite name = "Sample Test Suite">
+    <listeners>
+        <listener class-name="main.java.utils.suiteListener"/>
+    </listeners>
+    <test name = "Test Automation">
+        <parameter name="browserName" value="Chrome" />
+        <classes>
+            <class name="test.java.sampleTest"/>
+        </classes>
+    </test>
+</Suite>
