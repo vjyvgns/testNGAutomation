@@ -11,6 +11,7 @@ public class sampleTest extends BaseTest {
     public void enterEmailAddress(){
         homePageEvents HomePageEvents = new homePageEvents();
         loginPageEvents LoginPageEvents = new loginPageEvents();
+
         HomePageEvents.clickOnSignInButton();
         LoginPageEvents.verifyLoginPage();
         LoginPageEvents.enterEmailAddress();
