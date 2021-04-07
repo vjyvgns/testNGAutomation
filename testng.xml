@@ -7,7 +7,7 @@
     <test name = "Test Automation">
         <parameter name="browserName" value="Chrome" />
         <classes>
-            <class name="test.java.sampleTest"/>
+            <class name="test.java.testSuites.sampleTest"/>
         </classes>
     </test>
 </suite>

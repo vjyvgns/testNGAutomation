@@ -1,4 +1,4 @@
-package main.java.utils;
+package test.java.testData;
 
 public interface constants {
 
