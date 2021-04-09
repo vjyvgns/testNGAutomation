@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import main.java.utils.excelReader;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -22,6 +23,7 @@ public class BaseTest {
     public ExtentHtmlReporter htmlReporter;
     public static ExtentReports extent;
     public static ExtentTest logger;
+    excelReader excel;
 
     @BeforeTest
     public void beforeTest(){
@@ -40,7 +42,7 @@ public class BaseTest {
         logger = extent.createTest(testMethod.getName());
         setUpDriver(browserName);
         driver.manage().window().maximize();
-        driver.get(constants.url);
+        driver.get(constants.amazonUrl);
     }
 
 
@@ -81,5 +83,13 @@ public class BaseTest {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "chromedriver");
             driver = new ChromeDriver();
         }
+    }
+
+    public String[][] getData(String excelName, String sheetName) {
+        String path = System.getProperty("user.dir") + "/src/test/java/testData/"
+                + excelName;
+        excel = new excelReader(path);
+        String[][] data = excel.getDataFromSheet(sheetName, excelName);
+        return data;
     }
 }

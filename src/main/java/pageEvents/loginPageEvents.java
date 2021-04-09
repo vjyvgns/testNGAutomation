@@ -2,6 +2,7 @@ package main.java.pageEvents;
 import main.java.pageObjects.loginPageElements;
 import main.java.utils.fetchElement;
 import org.testng.Assert;
+import test.java.testData.constants;
 
 public class loginPageEvents {
     fetchElement FetchElement = new fetchElement();
@@ -18,7 +19,7 @@ public class loginPageEvents {
         System.out.println("Size of Elements: "+sizeOfElements);
     }
 
-    public void enterEmailAddress(){
-        FetchElement.getWebElement("ID",loginPageElements.emailAddress).sendKeys("rush2vijay.g@gmail.com");
+    public void enterEmailAddress(String emailAddress){
+        FetchElement.getWebElement("ID",loginPageElements.emailAddress).sendKeys(emailAddress);
     }
 }

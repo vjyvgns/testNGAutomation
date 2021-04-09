@@ -6,6 +6,11 @@
     </listeners>
     <test name = "Test Automation">
         <parameter name="browserName" value="Chrome" />
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="Run"/>-->
+<!--            </run>-->
+<!--        </groups>-->
         <classes>
             <class name="test.java.testSuites.sampleTest"/>
         </classes>
