@@ -3,8 +3,11 @@ package test.java.testSuites;
 import main.java.pageEvents.homePageEvents;
 import main.java.pageEvents.loginPageEvents;
 import main.java.utils.BaseTest;
+import main.java.utils.propertiesReader;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class sampleTest extends BaseTest {
 
@@ -16,7 +19,7 @@ public class sampleTest extends BaseTest {
 
 
     @Test(dataProvider = "testData")
-    public void enterEmailAddress(String emailAddress, String password){
+    public void enterEmailAddress(String emailAddress, String password) throws IOException {
         homePageEvents HomePageEvents = new homePageEvents();
         loginPageEvents LoginPageEvents = new loginPageEvents();
 
@@ -24,6 +27,10 @@ public class sampleTest extends BaseTest {
         LoginPageEvents.verifyLoginPage();
         LoginPageEvents.enterEmailAddress(emailAddress);
         System.out.println("Email Address is: "+emailAddress + "Password is: "+password);
+
+        //String url = propertiesReader.getObject("url");
+        //System.out.println("URL is: "+url);
+
     }
 
 //    @Test(groups = {"Run"})
