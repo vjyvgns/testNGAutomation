@@ -1,4 +1,4 @@
-package test.java;
+package main.java.utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -7,14 +7,17 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import main.java.utils.constants;
+import test.java.testData.constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import main.java.utils.excelReader;
+import main.java.utils.propertiesReader;
 
-import java.io.File;
+import java.io.*;
 import java.lang.reflect.Method;
+import java.util.Properties;
 
 public class BaseTest {
 
@@ -22,6 +25,8 @@ public class BaseTest {
     public ExtentHtmlReporter htmlReporter;
     public static ExtentReports extent;
     public static ExtentTest logger;
+    excelReader excel;
+
 
     @BeforeTest
     public void beforeTest(){
@@ -36,11 +41,12 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters(value={"browserName"})
-    public void beforeMethod(String browserName, Method testMethod){
+    public void beforeMethod(String browserName, Method testMethod) throws IOException {
         logger = extent.createTest(testMethod.getName());
         setUpDriver(browserName);
         driver.manage().window().maximize();
-        driver.get(constants.url);
+        String url = propertiesReader.getObject("url");
+        driver.get(url);
     }
 
 
@@ -61,8 +67,6 @@ public class BaseTest {
         driver.quit();
     }
 
-
-
     @AfterTest
     public void afterTest(){
         extent.flush();
@@ -81,5 +85,13 @@ public class BaseTest {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "chromedriver");
             driver = new ChromeDriver();
         }
+    }
+
+    public String[][] getData(String excelName, String sheetName) {
+        String path = System.getProperty("user.dir") + "/src/test/java/testData/"
+                + excelName;
+        excel = new excelReader(path);
+        String[][] data = excel.getDataFromSheet(sheetName, excelName);
+        return data;
     }
 }
