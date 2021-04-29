@@ -27,10 +27,6 @@ public class sampleTest extends BaseTest {
         LoginPageEvents.verifyLoginPage();
         LoginPageEvents.enterEmailAddress(emailAddress);
         System.out.println("Email Address is: "+emailAddress + "Password is: "+password);
-
-        //String url = propertiesReader.getObject("url");
-        //System.out.println("URL is: "+url);
-
     }
 
 //    @Test(groups = {"Run"})
