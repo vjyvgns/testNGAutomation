@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Checking out code'
+                git checkout scm
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                bat "mvn clean install -DtestSuite=sampleTest"
+            }
+        }
+        }
+    }
+}
