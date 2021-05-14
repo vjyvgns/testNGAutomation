@@ -46,6 +46,7 @@ public class BaseTest {
         setUpDriver(browserName);
         driver.manage().window().maximize();
         String url = propertiesReader.getObject("url");
+        System.out.println("URL in BaseTest is "+url);
         driver.get(url);
     }
 

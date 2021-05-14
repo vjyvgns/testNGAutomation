@@ -1,5 +1,6 @@
 package test.java.testSuites;
 
+import com.aventstack.extentreports.Status;
 import main.java.pageEvents.homePageEvents;
 import main.java.pageEvents.loginPageEvents;
 import main.java.utils.BaseTest;
@@ -27,10 +28,7 @@ public class sampleTest extends BaseTest {
         LoginPageEvents.verifyLoginPage();
         LoginPageEvents.enterEmailAddress(emailAddress);
         System.out.println("Email Address is: "+emailAddress + "Password is: "+password);
-
-        //String url = propertiesReader.getObject("url");
-        //System.out.println("URL is: "+url);
-
+        logger.log(Status.PASS,"Passed");
     }
 
 //    @Test(groups = {"Run"})

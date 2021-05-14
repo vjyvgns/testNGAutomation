@@ -43,6 +43,7 @@ public class excelReader {
             int totalRow = sheet.getLastRowNum() + 1;
             // count number of active columns in row
             int totalColumn = sheet.getRow(0).getLastCellNum();
+            sheet.getRow(2).getCell(3);
             // Create array of rows and column
             dataSets = new String[totalRow - 1][totalColumn];
             // Run for loop and store data in 2D array

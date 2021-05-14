@@ -11,9 +11,6 @@ public class propertiesReader {
         FileInputStream fis = new FileInputStream(f);
         properties = new Properties();
         properties.load(fis);
-
-        String URL = properties.getProperty("url");
-        System.out.println("URL is: "+URL);
     }
 
     public static String getObject(String Data) throws IOException {
